@@ -1,6 +1,6 @@
 # **CSI606-2025-01 - Remoto - Proposta de Trabalho Final**
 
-## *Discente: Luís Eduardo Bastos Rocha*
+## *Discente: Luís Eduardo Bastos Rocha - Matrícula: 23.1.8095*
 
 ### Resumo
 
