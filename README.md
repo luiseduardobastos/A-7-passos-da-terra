@@ -36,7 +36,6 @@
 - Módulos avançados de auditoria ou logs de segurança além do básico.
 - Aplicativo mobile nativo (somente versão web responsiva).
 
-<!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
   Os protótipos de interface estão sendo desenvolvidos na ferramenta Figma:
@@ -44,5 +43,5 @@
 
 ### 5. Referências
 
-  LARAVEL. Documentation. Disponível em: https://laravel.com/docs/11.x. Acesso em: 15 nov. 2025.\n
-  REACT. Documentation. Disponível em: https://react.dev/learn. Acesso em: 15 nov. 2025.
+  - LARAVEL. Documentation. Disponível em: https://laravel.com/docs/11.x. Acesso em: 15 nov. 2025.
+  - REACT. Documentation. Disponível em: https://react.dev/learn. Acesso em: 15 nov. 2025.
