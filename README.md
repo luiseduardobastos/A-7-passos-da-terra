@@ -39,7 +39,7 @@
 ### 4. Protótipo
 
   Os protótipos de interface estão sendo desenvolvidos na ferramenta Figma:
-  
+  [Link para o projeto no Figma](https://www.figma.com/make/eZQUeBqQhRYXGAGSsNHhWN/A-7-Palmos-da-Terra?t=AN3lO54tO965Bpro-20&fullscreen=1)
 
 ### 5. Referências
 
