@@ -1,47 +1,217 @@
-# **CSI606-2025-01 - Remoto - Proposta de Trabalho Final**
+# CSI606-2025-01 - Remoto - Proposta de Trabalho Final
 
-## *Discente: Luís Eduardo Bastos Rocha - Matrícula: 23.1.8095*
+## Discente: Luís Eduardo Bastos Rocha - Matrícula: 23.1.8095
 
-### Resumo
+---
 
-  O trabalho consiste no desenvolvimento de um sistema web denominado “A 7 Palmos da Terra”, voltado para o gerenciamento completo de cemitérios públicos ou privados. O objetivo é informatizar processos que ainda são realizados de forma manual, proporcionando organização, rapidez de consulta e precisão nos dados. A plataforma permitirá administrar covas, jazigos, sepultamentos, responsáveis e reservas de vagas, além de oferecer relatórios e ferramentas de busca tanto para a administração quanto para o público geral.
+## Resumo
 
-### 1. Tema
+O trabalho consiste no desenvolvimento do sistema web **“A 7 Palmos da Terra”**, uma plataforma para gerenciamento completo de cemitérios públicos ou privados.
 
-  O trabalho final tem como tema o desenvolvimento de um sistema web para gerenciamento de cemitérios, contemplando um frontend desacoplado (React), um backend em arquitetura de API REST (Laravel ou Node/Express) e um banco de dados relacional (PostgreSQL ou MySQL). A aplicação visa informatizar o controle de covas, jazigos, sepultamentos e cadastros relacionados, oferecendo ferramentas administrativas e um portal de consultas ao público.
+O sistema informatiza processos tradicionalmente manuais, proporcionando organização, rastreabilidade e rapidez na consulta de dados. A aplicação permite administrar sepultamentos, quadras, vagas disponíveis, responsáveis e pagamentos, além de disponibilizar relatórios estatísticos e painel administrativo com indicadores estratégicos.
 
-  O foco do projeto é aplicar conceitos de arquitetura de sistemas web, integração entre frontend e backend por meio de APIs, controle de autenticação e autorização, além de lógica de negócios para o gerenciamento de sepultamentos, reservas, concessões e histórico de ocupações.
+A arquitetura foi implementada com frontend desacoplado, backend estruturado em API REST e banco de dados relacional, aplicando conceitos modernos de desenvolvimento web.
 
-### 2. Escopo
+---
 
-  Este projeto terá as seguintes funcionalidades:
-- Cadastro e gerenciamento de falecidos, familiares, responsáveis e sepultamentos.
-- Administração de covas, jazigos, quadras, setores e localizações no cemitério.
-- Controle de vagas disponíveis, reservas de vagas e histórico de ocupações.
-- Busca rápida por nome, número da cova, data de sepultamento ou setor.
-- Concessões e renovações de jazigos.
-- Gestão de pagamentos e vencimentos de taxas.
-- Emissão de relatórios administrativos e estatísticas de ocupação.
-- Registro de exumações e transferências.
-- Módulo de notificações e princípios de gamificação (ex.: alertas de tempo sem visitas).
-- Portal público para consultas e visualização dos dados permitidos.
-- Painel administrativo para funcionários e gestores, com permissões diferenciadas.
+## 1. Tema
 
-### 3. Restrições
+O trabalho final tem como tema o desenvolvimento de um sistema web para gerenciamento de cemitérios, utilizando:
 
-  Neste trabalho não serão considerados:
-- Integração com sistemas externos de prefeituras, cartórios ou planos funerários.
-- Pagamentos online reais (será apenas simulação).
-- Geolocalização real via GPS (o mapa será representado apenas de forma visual/estrutural).
-- Módulos avançados de auditoria ou logs de segurança além do básico.
-- Aplicativo mobile nativo (somente versão web responsiva).
+- **Frontend desacoplado (React + TypeScript + Vite)**
+- **Backend baseado em API REST (Node.js + Express)**
+- **Banco de dados relacional (SQLite com Prisma ORM)**
 
-### 4. Protótipo
+A aplicação implementa funcionalidades administrativas completas, incluindo autenticação, controle de sepultamentos, gestão financeira, visualização estrutural do cemitério e geração de relatórios.
 
-  Os protótipos de interface estão sendo desenvolvidos na ferramenta Figma:
-  [Link para o projeto no Figma](https://www.figma.com/make/eZQUeBqQhRYXGAGSsNHhWN/A-7-Palmos-da-Terra?t=AN3lO54tO965Bpro-20&fullscreen=1)
+O foco do projeto é aplicar conceitos de:
 
-### 5. Referências
+- Arquitetura cliente-servidor  
+- Comunicação via API REST  
+- Separação de responsabilidades (frontend/backend)  
+- Modelagem relacional de dados  
+- ORM com Prisma  
+- Controle de autenticação e autorização  
+- Implementação de operações CRUD completas  
 
-  - LARAVEL. Documentation. Disponível em: https://laravel.com/docs/11.x. Acesso em: 15 nov. 2025.
-  - REACT. Documentation. Disponível em: https://react.dev/learn. Acesso em: 15 nov. 2025.
+---
+
+## 2. Escopo
+
+O sistema desenvolvido contempla os seguintes módulos:
+
+### Autenticação
+
+- Tela de login com e-mail e senha  
+- Tela de cadastro com nome, cidade, e-mail e senha  
+- Controle de acesso restrito a usuários autenticados  
+- Sessão protegida para acesso às funcionalidades administrativas  
+
+---
+
+### Dashboard
+
+Após autenticação, o usuário acessa o painel principal contendo:
+
+**Indicadores principais:**
+
+- Total de sepultamentos  
+- Vagas disponíveis  
+- Taxa geral de ocupação  
+
+**Informações complementares:**
+
+- Lista de sepultamentos recentes  
+- Notificações de ocupação por quadra  
+- Acesso rápido aos relatórios  
+
+O dashboard centraliza dados estratégicos para apoio à tomada de decisão.
+
+---
+
+### Gerenciamento de Sepultamentos
+
+Permite o cadastro e controle completo dos registros.
+
+**Funcionalidades:**
+
+- Cadastro de novo sepultamento  
+- Edição de dados  
+- Exclusão de registros  
+- Filtro por nome  
+- Controle de status (ativo/inativo)  
+
+**Informações exibidas:**
+
+- ID  
+- Nome do falecido  
+- Data de falecimento  
+- Data de sepultamento  
+- Localização (Quadra)  
+- Responsável  
+- Status  
+- Ações (editar/excluir)  
+
+---
+
+### Gestão de Pagamentos
+
+Responsável pelo controle financeiro do sistema.
+
+**Indicadores:**
+
+- Total de recebimentos  
+- Pagamentos em atraso  
+- Pagamentos pendentes  
+
+**Funcionalidades:**
+
+- Listagem de cobranças  
+- Registro manual de pagamento  
+- Atualização de status  
+
+**Status possíveis:**
+
+- Pago  
+- Pendente  
+- Atraso  
+
+Cada registro apresenta:
+
+- Nome  
+- Data  
+- Localização  
+- Responsável  
+- Valor  
+- Status  
+
+---
+
+### Mapa do Cemitério
+
+O sistema apresenta um mapa estrutural organizado por quadras (A, B, C e D).
+
+Cada quadra exibe:
+
+- Percentual de ocupação  
+- Quantidade de vagas ocupadas  
+- Número de vagas disponíveis  
+- Barra de progresso visual  
+- Atualização dinâmica dos dados  
+
+Esse módulo fornece visão rápida da capacidade operacional do cemitério.
+
+---
+
+### Relatórios
+
+O módulo de relatórios apresenta:
+
+**Indicadores gerais:**
+
+- Total de sepultamentos  
+- Sepultamentos no mês  
+- Sepultamentos no ano  
+
+**Relatórios detalhados:**
+
+- Ocupação por quadra  
+- Distribuição percentual  
+- Sepultamentos por mês (últimos meses)  
+
+Esse módulo auxilia na análise estatística e planejamento administrativo.
+
+---
+
+### Administração
+
+Permite a atualização dos dados do administrador:
+
+- Nome  
+- Cidade  
+- E-mail  
+- Alteração de senha  
+
+Garante manutenção e atualização das informações cadastrais.
+
+---
+
+## 3. Restrições
+
+Neste trabalho não foram considerados:
+
+- Integração com sistemas externos (prefeituras, cartórios ou planos funerários)  
+- Pagamentos online reais (apenas simulação)  
+- Geolocalização real via GPS  
+- Auditoria avançada de logs  
+- Aplicativo mobile nativo (apenas versão web responsiva)  
+
+---
+
+## 4. Protótipo
+
+O sistema foi inicialmente modelado no Figma e posteriormente implementado no sistema web.
+
+Link para o projeto no Figma:  
+[Link para o projeto no Figma](https://www.figma.com/make/eZQUeBqQhRYXGAGSsNHhWN/A-7-Palmos-da-Terra?t=AN3lO54tO965Bpro-20&fullscreen=1)
+
+As telas implementadas incluem:
+
+- Login  
+- Cadastro  
+- Dashboard  
+- Sepultamentos  
+- Pagamentos  
+- Mapa  
+- Relatórios  
+- Administração  
+
+---
+
+## 5. Referências
+
+- NODE.JS. Documentation. Disponível em: https://nodejs.org  
+- EXPRESS. Documentation. Disponível em: https://expressjs.com  
+- PRISMA ORM. Documentation. Disponível em: https://www.prisma.io/docs  
+- REACT. Documentation. Disponível em: https://react.dev  
+- VITE. Documentation. Disponível em: https://vitejs.dev  
