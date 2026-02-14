@@ -213,7 +213,7 @@ As telas implementadas incluem:
 ### Pré-requisitos
 
 - **Node.js** (v18 ou superior)
-- **npm** (gerenciador de pacotes)
+- **Npm** (gerenciador de pacotes)
 - **Git**
 
 ### Passos para Instalação
@@ -237,7 +237,7 @@ npm install
 Crie arquivo `.env` na pasta `server`:
 
 ```
-DATABASE_URL="file:./db/database.db"
+DATABASE_URL="file:./dev.db"
 ```
 
 Execute as migrações do Prisma:
