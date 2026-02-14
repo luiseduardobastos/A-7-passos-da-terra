@@ -208,7 +208,97 @@ As telas implementadas incluem:
 
 ---
 
-## 5. Referências
+## 5. Instalação e Execução
+
+### Pré-requisitos
+
+- **Node.js** (v18 ou superior)
+- **npm** (gerenciador de pacotes)
+- **Git**
+
+### Passos para Instalação
+
+#### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/luiseduardobastos/A-7-passos-da-terra.git
+cd "A 7 Palmos da Terra"
+```
+
+#### 2. Instalar Dependências do Backend
+
+```bash
+cd server
+npm install
+```
+
+#### 3. Configurar o Banco de Dados
+
+Crie arquivo `.env` na pasta `server`:
+
+```
+DATABASE_URL="file:./db/database.db"
+```
+
+Execute as migrações do Prisma:
+
+```bash
+npx prisma migrate dev --name init_sistema_cemiterio
+```
+
+#### 4. Iniciar o Backend
+
+```bash
+npm start
+```
+
+O servidor estará rodando em `http://localhost:5000`
+
+#### 5. Instalar Dependências do Frontend
+
+Abra outro terminal e navegue para a pasta `web`:
+
+```bash
+cd web
+npm install
+```
+
+#### 6. Iniciar o Frontend
+
+```bash
+npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:5173`
+
+### Estrutura do Projeto
+
+```
+A 7 Palmos da Terra/
+├── server/                 # Backend (Node.js + Express)
+│   ├── src/
+│   ├── prisma/             # Configuração banco de dados
+│   ├── package.json
+│   └── .env
+├── web/                    # Frontend (React + TypeScript + Vite)
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.ts
+└── README.md
+```
+
+### Credenciais de Teste
+
+Para acessar o sistema, crie uma conta ou use as credenciais padrão (após primeira execução):
+
+- **Email:** seu email
+- **Senha:** sua senha
+
+Utilize dados fictícios pois o sistema foi projetado a fim de testes, porém a senha é protegida por hash.
+
+---
+
+## 6. Referências
 
 - NODE.JS. Documentation. Disponível em: https://nodejs.org
 - EXPRESS. Documentation. Disponível em: https://expressjs.com
