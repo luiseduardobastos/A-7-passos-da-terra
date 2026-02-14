@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Falecido {
+  id                Int      @id @default(autoincrement())
+  nome              String
+  data_falecimento  DateTime
+  data_sepultamento DateTime
+  localizacao       String
+  responsavel       String
+  ativo             Boolean  @default(true)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  @@map("tb_falecidos")
+}
+
+model Administrador {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  cidade     String
+  email      String   @unique
+  senha_hash String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("tb_administradores")
+}
