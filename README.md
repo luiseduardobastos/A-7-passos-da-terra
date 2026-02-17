@@ -221,7 +221,7 @@ As telas implementadas incluem:
 #### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/luiseduardobastos/A-7-passos-da-terra.git
+git clone https://github.com/luiseduardobastos/A-7-palmos-da-terra.git
 cd "A 7 Palmos da Terra"
 ```
 
@@ -244,6 +244,7 @@ Execute as migrações do Prisma:
 
 ```bash
 npx prisma migrate dev --name init_sistema_cemiterio
+npx prisma generate
 ```
 
 #### 4. Iniciar o Backend
@@ -269,7 +270,7 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+A aplicação estará disponível em `http://localhost:5174`
 
 ### Estrutura do Projeto
 
