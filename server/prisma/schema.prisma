@@ -36,3 +36,14 @@ model Administrador {
 
   @@map("tb_administradores")
 }
+
+model Pagamento {
+  id             Int      @id @default(autoincrement())
+  falecido_id    Int      @unique
+  valor          Float    @default(500)
+  data_pagamento DateTime @default(now())
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  @@map("tb_pagamentos")
+}

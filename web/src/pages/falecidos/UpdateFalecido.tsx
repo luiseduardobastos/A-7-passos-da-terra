@@ -147,7 +147,7 @@ const UpdateFalecido = () => {
             name="dataSepultamento"
             id="dataSepultamento"
             value={dataSepultamento}
-            max={maxDate}
+            min={dataFalecimento}
             required
             className="flex h-8 w-full rounded-md border border-slate-300 bg-white px-2 py-1 text-xs ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 transition-all shadow-sm"
             onChange={(event) => setDataSepultamento(event.target.value)}

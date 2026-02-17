@@ -5,6 +5,7 @@ import cors from "cors";
 import { mainRouter } from "./routes/main.js";
 import { falecidoRouter } from "./routes/falecido.js";
 import { authRouter } from "./routes/auth.js";
+import { pagamentoRouter } from "./routes/pagamento.js";
 
 // Configurações (.env)
 const PORT = 5000;
@@ -20,6 +21,7 @@ server.use(cors());
 server.use(mainRouter);
 server.use(falecidoRouter);
 server.use(authRouter);
+server.use(pagamentoRouter);
 
 // Start - listen
 server.listen(PORT, () => {

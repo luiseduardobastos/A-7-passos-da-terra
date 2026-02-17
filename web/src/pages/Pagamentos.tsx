@@ -20,21 +20,19 @@ function Pagamentos() {
   const [pagamentosAtraso, setPagamentosAtraso] = useState(0)
   const [pagamentosPendentes, setPagamentosPendentes] = useState(0)
 
+  // Carregar pagamentos do BD na primeira renderização
   useEffect(() => {
-    // Recuperar pagos do localStorage e sincronizar estado
-    const storedPagos = localStorage.getItem('pagamentosPagos')
-    if (storedPagos) {
-      try {
-        const parsed = JSON.parse(storedPagos)
-        if (Array.isArray(parsed)) {
-          setPagosIds(parsed)
-        }
-      } catch (error) {
-        console.error('Erro ao parsear pagamentos do localStorage:', error)
-      }
-    }
+    api.get('/api/pagamentos')
+      .then((response) => {
+        const pagosIds = response.data.map((pagamento: any) => pagamento.falecido_id)
+        setPagosIds(pagosIds)
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar pagamentos:', error)
+      })
   }, [])
 
+  // Carregar sepultamentos
   useEffect(() => {
     api.get('/api/falecidos')
       .then((response) => {
@@ -55,11 +53,9 @@ function Pagamentos() {
     const data = new Date(dataCreacao)
     const diasDiferenca = Math.floor((hoje.getTime() - data.getTime()) / (1000 * 60 * 60 * 24))
     
-    // Se passou mais de 30 dias, marca como atraso
     if (diasDiferenca > 30) {
       return 'Atraso'
     }
-    // Caso contrário, é pendente
     return 'Pendente'
   }
 
@@ -99,10 +95,16 @@ function Pagamentos() {
   const handleRegistrarPagamento = (sepultamento: Sepultamento) => {
     const confirmed = window.confirm(`Registrar pagamento para ${sepultamento.nome}?`)
     if (confirmed && !pagosIds.includes(sepultamento.id)) {
-      const novosPagos = [...pagosIds, sepultamento.id]
-      setPagosIds(novosPagos)
-      // Salvar no localStorage
-      localStorage.setItem('pagamentosPagos', JSON.stringify(novosPagos))
+      api.post('/api/pagamentos', { falecido_id: sepultamento.id })
+        .then(() => {
+          const novosPagos = [...pagosIds, sepultamento.id]
+          setPagosIds(novosPagos)
+          alert(`Pagamento registrado com sucesso para ${sepultamento.nome}!`)
+        })
+        .catch((error) => {
+          console.error('Erro ao registrar pagamento:', error)
+          alert('Erro ao registrar pagamento!')
+        })
     }
   }
 
@@ -157,7 +159,7 @@ function Pagamentos() {
           </div>
         </div>
 
-        {/* Tabela de Sepultamentos */}
+        {/* Tabela de Pagamentos */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-lg font-semibold text-slate-900 mb-1">Lista de Pagamentos</h2>
           <p className="text-slate-600 text-xs mb-4">Gerencie todas as taxas e cobranças do cemitério</p>
@@ -182,7 +184,6 @@ function Pagamentos() {
               <option value="atraso">Status: Atraso</option>
             </select>
           </div>
-          
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead className="bg-slate-800 text-white">
@@ -198,7 +199,7 @@ function Pagamentos() {
                 </tr>
               </thead>
               <tbody>
-                {filteredSepultamentos.map((sepultamento) => {
+                {filteredSepultamentos.sort((a, b) => a.id - b.id).map((sepultamento) => {
                   const defaultStatus = getStatusFromDate(sepultamento.data_sepultamento)
                   const actualStatus = getActualStatus(sepultamento.id, defaultStatus)
                   
@@ -231,12 +232,12 @@ function Pagamentos() {
                           onClick={() => handleRegistrarPagamento(sepultamento)}
                           disabled={isPago}
                           className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
-                            isPago 
-                              ? 'bg-slate-200 text-slate-400 cursor-not-allowed' 
+                            isPago
+                              ? 'bg-slate-200 text-slate-500 cursor-not-allowed'
                               : 'bg-blue-500 text-white hover:bg-blue-600'
                           }`}
                         >
-                          {isPago ? 'Pago' : 'Registrar'}
+                          {isPago ? 'Pago' : 'Registrar Pagamento'}
                         </button>
                       </td>
                     </tr>
@@ -244,9 +245,9 @@ function Pagamentos() {
                 })}
               </tbody>
             </table>
-            {sepultamentos.length === 0 && (
+            {filteredSepultamentos.length === 0 && (
               <div className="text-center py-8 text-slate-500">
-                Nenhum sepultamento cadastrado
+                Nenhum registro encontrado
               </div>
             )}
           </div>
