@@ -208,7 +208,18 @@ As telas implementadas incluem:
 
 ---
 
-## 5. Instalação e Execução
+## 5. Vídeo de Apresentação
+
+O vídeo de apresentação do sistema foi gravado explicando todo o funcionamento do projeto.
+
+Link para acessar o vídeo:  
+[Link para o vídeo no Drive](https://drive.google.com/file/d/1CUhIeBXRGKJSRu5TmGMIjaHRwyswXflM/view?usp=sharing)
+
+Para acessar o vídeo é necessário estar logado na sua conta institucional da UFOP.
+
+---
+
+## 6. Instalação e Execução
 
 ### Pré-requisitos
 
@@ -299,7 +310,7 @@ Utilize dados fictícios pois o sistema foi projetado a fim de testes, porém a 
 
 ---
 
-## 6. Referências
+## 7. Referências
 
 - NODE.JS. Documentation. Disponível em: https://nodejs.org
 - EXPRESS. Documentation. Disponível em: https://expressjs.com
